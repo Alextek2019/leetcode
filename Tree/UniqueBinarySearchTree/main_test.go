@@ -16,7 +16,12 @@ func TestNumTrees(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			got := NumTrees(tc.request)
+			got := NumTreesV1(tc.request)
+			if got != tc.want {
+				t.Errorf("NumTrees(%d) = %d; want %d", tc.request, got, tc.want)
+			}
+
+			got = NumTreesV2(tc.request)
 			if got != tc.want {
 				t.Errorf("NumTrees(%d) = %d; want %d", tc.request, got, tc.want)
 			}
